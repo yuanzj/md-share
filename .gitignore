@@ -1,0 +1,17 @@
+node_modules
+.dist
+*.log
+.DS_Store
+.env
+.env.*
+node_modules/.tmp
+
+# Vite
+/dist
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE
+.vscode
+.idea

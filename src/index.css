@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Libre+Baskerville:wght@400;700&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  background-color: #f5f6f8;
+  color: #111827;
+}
+
+.markdown-body {
+  color: var(--card-text, #111827);
+  font-family: var(--card-font, 'Libre Baskerville', serif);
+  line-height: var(--card-line-height, 1.8);
+  font-size: 16px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--card-text, #111827);
+}
+
+.markdown-body h1 {
+  font-size: 1.9rem;
+  margin: 0 0 0.75rem;
+}
+
+.markdown-body h2 {
+  font-size: 1.4rem;
+  margin: 1.5rem 0 0.6rem;
+}
+
+.markdown-body h3 {
+  font-size: 1.15rem;
+  margin: 1.2rem 0 0.5rem;
+}
+
+.markdown-body p {
+  margin: 0.6rem 0;
+}
+
+.markdown-body a {
+  color: var(--accent, #2563eb);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 1.4rem;
+  margin: 0.6rem 0 0.8rem;
+}
+
+.markdown-body li {
+  margin: 0.25rem 0;
+}
+
+.markdown-body blockquote {
+  margin: 1rem 0;
+  padding: 0.6rem 0.9rem;
+  border-left: 4px solid var(--accent, #2563eb);
+  background: var(--muted, rgba(15, 23, 42, 0.06));
+  border-radius: 0.5rem;
+  color: var(--card-text, #111827);
+}
+
+.markdown-body code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.9em;
+  background: var(--code-bg, rgba(15, 23, 42, 0.08));
+  color: var(--code-color, #0f172a);
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.35rem;
+}
+
+.markdown-body pre {
+  margin: 0.9rem 0 1.2rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.7rem;
+  background: var(--code-bg, rgba(15, 23, 42, 0.08));
+  overflow-x: auto;
+}
+
+.markdown-body pre code {
+  background: transparent;
+  padding: 0;
+  color: var(--code-color, #0f172a);
+  display: block;
+  white-space: pre;
+}
+
+.markdown-body hr {
+  border: none;
+  border-top: 1px solid var(--muted, rgba(15, 23, 42, 0.12));
+  margin: 1.4rem 0;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  border-radius: 0.8rem;
+}
+
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8rem 0;
+  font-size: 0.95rem;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid var(--muted, rgba(15, 23, 42, 0.18));
+  padding: 0.5rem 0.6rem;
+}
+
+.toast {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.toast-hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.toast-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
