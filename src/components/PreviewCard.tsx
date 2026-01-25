@@ -13,7 +13,6 @@ const PreviewCard = forwardRef<HTMLDivElement, PreviewCardProps>(
     const cardStyle: CSSProperties = {
       background: theme.background,
       borderRadius: theme.radius,
-      boxShadow: theme.shadow,
       border: theme.border,
       backdropFilter: theme.blur,
       opacity: theme.opacity,
