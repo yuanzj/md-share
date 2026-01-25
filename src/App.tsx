@@ -166,7 +166,7 @@ export default function App() {
           />
 
           <div className="grid gap-6 lg:grid-cols-2">
-            <Editor value={markdown} onChange={setMarkdown} />
+            <Editor value={markdown} onChange={setMarkdown} radius={theme.radius} />
             <PreviewCard
               ref={exportRef}
               html={html}
