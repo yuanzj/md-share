@@ -33,22 +33,20 @@ const PreviewCard = forwardRef<HTMLDivElement, PreviewCardProps>(
           <h2 className="text-lg font-semibold text-slate-900">预览</h2>
           <span className="text-xs text-slate-500">自动渲染</span>
         </div>
-        <div className="rounded-3xl bg-white/70 p-4 shadow-sm ring-1 ring-slate-200/70">
-          <div
-            ref={ref}
-            className="relative overflow-visible px-6 py-6"
-            style={cardStyle}
-          >
-            <div className="markdown-body" dangerouslySetInnerHTML={{ __html: html }} />
-            {showWatermark && watermarkText.trim() !== '' && (
-              <div
-                className="mt-8 text-xs uppercase tracking-widest"
-                style={{ color: theme.textColor, opacity: 0.55 }}
-              >
-                {watermarkText}
-              </div>
-            )}
-          </div>
+        <div
+          ref={ref}
+          className="relative overflow-visible px-6 py-6"
+          style={cardStyle}
+        >
+          <div className="markdown-body" dangerouslySetInnerHTML={{ __html: html }} />
+          {showWatermark && watermarkText.trim() !== '' && (
+            <div
+              className="mt-8 text-xs uppercase tracking-widest"
+              style={{ color: theme.textColor, opacity: 0.55 }}
+            >
+              {watermarkText}
+            </div>
+          )}
         </div>
       </div>
     )
