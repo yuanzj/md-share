@@ -10,8 +10,9 @@
 
 body {
   font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
-  background-color: #f5f6f8;
+  background-color: var(--ui-bg, #f5f6f8);
   color: #111827;
+  transition: background-color 0.3s ease;
 }
 
 .markdown-body {

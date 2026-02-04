@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { toPng } from 'html-to-image'
 import { renderMarkdown } from './lib/markdown'
 import { mdToWechatText } from './lib/wechat'
@@ -40,6 +40,11 @@ export default function App() {
 
   const theme = useMemo(() => themes.find((item) => item.id === themeId) ?? themes[0], [themeId])
   const html = useMemo(() => renderMarkdown(markdown), [markdown])
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--ui-bg', theme.uiBg)
+    document.documentElement.style.setProperty('--ui-border', theme.uiBorder)
+  }, [theme])
 
   const showToast = (message: string) => {
     setToastMessage(message)
@@ -129,29 +134,30 @@ export default function App() {
     watermarkText.trim() === '' ? DEFAULT_WATERMARK_TEXT : watermarkText
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className={`min-h-screen transition-colors duration-300 ${theme.isDark ? 'text-slate-100' : 'text-slate-900'}`}>
       <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute -top-32 right-[-120px] h-96 w-96 rounded-full bg-gradient-to-br from-sky-200/60 via-emerald-100/40 to-amber-100/60 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-40 left-[-80px] h-96 w-96 rounded-full bg-gradient-to-br from-rose-200/50 via-orange-100/40 to-lime-100/40 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 right-[-120px] h-96 w-96 rounded-full bg-gradient-to-br from-sky-200/60 via-emerald-100/40 to-amber-100/60 blur-3xl opacity-60" />
+        <div className="pointer-events-none absolute -bottom-40 left-[-80px] h-96 w-96 rounded-full bg-gradient-to-br from-rose-200/50 via-orange-100/40 to-lime-100/40 blur-3xl opacity-60" />
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
           <header className="flex flex-col items-start gap-2">
             <div className="flex items-center gap-3">
-              <span className="rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white">
+              <span className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest ${theme.isDark ? 'bg-slate-100 text-slate-900' : 'bg-slate-900 text-white'}`}>
                 Jayden.Dev
               </span>
-              <span className="text-xs font-medium tracking-[0.22em] text-slate-500/80">
+              <span className={`text-xs font-medium tracking-[0.22em] ${theme.isDark ? 'text-slate-400' : 'text-slate-500/80'}`}>
                 AI 灵感分发 · 格式净化 · 隐私安全
               </span>
             </div>
-            <h1 className="text-3xl font-semibold tracking-tight text-slate-900">
+            <h1 className={`text-3xl font-semibold tracking-tight ${theme.isDark ? 'text-slate-100' : 'text-slate-900'}`}>
               消除 Markdown 干扰，重塑 AI 对话的阅读体验
             </h1>
-            <p className="max-w-2xl text-sm text-slate-500">
+            <p className={`max-w-2xl text-sm ${theme.isDark ? 'text-slate-400' : 'text-slate-500'}`}>
               粘贴 AI 内容即刻渲染，支持微信排版优化与高保真卡片导出。
             </p>
           </header>
 
           <Toolbar
+            theme={theme}
             themes={themes}
             themeId={themeId}
             onThemeChange={handleThemeChange}
@@ -166,7 +172,7 @@ export default function App() {
           />
 
           <div className="grid gap-6 lg:grid-cols-2">
-            <Editor value={markdown} onChange={setMarkdown} radius={theme.radius} />
+            <Editor value={markdown} onChange={setMarkdown} theme={theme} />
             <PreviewCard
               ref={exportRef}
               html={html}

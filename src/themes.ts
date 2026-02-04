@@ -14,6 +14,9 @@ export type Theme = {
   muted: string
   codeBg: string
   codeColor: string
+  isDark: boolean
+  uiBg: string
+  uiBorder: string
 }
 
 export const themes: Theme[] = [
@@ -33,6 +36,9 @@ export const themes: Theme[] = [
     muted: 'rgba(120, 72, 30, 0.08)',
     codeBg: 'rgba(120, 72, 30, 0.12)',
     codeColor: '#2b2118',
+    isDark: false,
+    uiBg: '#fffbf6',
+    uiBorder: '#eaddd5',
   },
   {
     id: 'graphite-night',
@@ -50,6 +56,9 @@ export const themes: Theme[] = [
     muted: 'rgba(148, 163, 184, 0.18)',
     codeBg: 'rgba(15, 23, 42, 0.7)',
     codeColor: '#e2e8f0',
+    isDark: true,
+    uiBg: '#030712',
+    uiBorder: '#1f2937',
   },
   {
     id: 'mint-breeze',
@@ -67,6 +76,9 @@ export const themes: Theme[] = [
     muted: 'rgba(16, 185, 129, 0.1)',
     codeBg: 'rgba(16, 185, 129, 0.12)',
     codeColor: '#064e3b',
+    isDark: false,
+    uiBg: '#f0fdf9',
+    uiBorder: '#bbf7d0',
   },
   {
     id: 'soft-clay',
@@ -84,6 +96,9 @@ export const themes: Theme[] = [
     muted: 'rgba(194, 65, 12, 0.1)',
     codeBg: 'rgba(194, 65, 12, 0.12)',
     codeColor: '#4c1d16',
+    isDark: false,
+    uiBg: '#fff7ed',
+    uiBorder: '#fed7aa',
   },
   {
     id: 'midnight-teal',
@@ -101,6 +116,9 @@ export const themes: Theme[] = [
     muted: 'rgba(14, 116, 144, 0.2)',
     codeBg: 'rgba(8, 47, 73, 0.7)',
     codeColor: '#e0f2fe',
+    isDark: true,
+    uiBg: '#020617',
+    uiBorder: '#1e293b',
   },
   {
     id: 'lavender-mist',
@@ -118,6 +136,9 @@ export const themes: Theme[] = [
     muted: 'rgba(109, 40, 217, 0.12)',
     codeBg: 'rgba(109, 40, 217, 0.12)',
     codeColor: '#312e81',
+    isDark: false,
+    uiBg: '#faf5ff',
+    uiBorder: '#ddd6fe',
   },
   {
     id: 'skyline',
@@ -135,6 +156,9 @@ export const themes: Theme[] = [
     muted: 'rgba(14, 165, 233, 0.1)',
     codeBg: 'rgba(14, 165, 233, 0.12)',
     codeColor: '#0f172a',
+    isDark: false,
+    uiBg: '#f0f9ff',
+    uiBorder: '#bae6fd',
   },
   {
     id: 'mono-slate',
@@ -152,5 +176,8 @@ export const themes: Theme[] = [
     muted: 'rgba(15, 23, 42, 0.08)',
     codeBg: 'rgba(15, 23, 42, 0.1)',
     codeColor: '#0f172a',
+    isDark: false,
+    uiBg: '#f8fafc',
+    uiBorder: '#cbd5e1',
   },
 ]
